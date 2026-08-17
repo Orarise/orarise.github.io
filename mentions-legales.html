@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentions légales — Orarise</title>
+<meta name="robots" content="index, follow">
+<style>
+  :root{
+    --ink:#0B0A10; --night:#15131C;
+    --dawn1:#F0A93B; --dawn2:#FFCE6B;
+    --mint:#4FD1A0; --muted:#9A8F86;
+    --line:rgba(255,255,255,0.08);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    background:var(--ink); color:#F5EFE6;
+    -webkit-font-smoothing:antialiased; line-height:1.65;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(16,16,26,0.85); backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-weight:800;font-size:20px;letter-spacing:-0.5px;display:flex;align-items:center;gap:10px;color:#F5EFE6;text-decoration:none}
+  .logo .dot{width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--dawn1),#C77F1A);box-shadow:0 0 14px var(--dawn1)}
+  .back{color:var(--dawn1);text-decoration:none;font-size:14px;font-weight:600}
+
+  header{padding:56px 0 32px;border-bottom:1px solid var(--line)}
+  h1{font-size:clamp(30px,5vw,42px);font-weight:800;letter-spacing:-1.5px;line-height:1.1}
+  .maj{font-size:13px;color:var(--muted);margin-top:12px}
+
+  main{padding:40px 0 80px}
+  h2{
+    font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+    color:var(--dawn1);margin:40px 0 14px;
+  }
+  h2:first-of-type{margin-top:0}
+  p{font-size:15.5px;color:#D8CFC2;margin-bottom:14px}
+  a{color:var(--dawn2)}
+  .card{
+    background:rgba(255,255,255,0.03);border:1px solid var(--line);
+    border-radius:14px;padding:20px;margin-bottom:14px;
+  }
+  .card p{margin-bottom:6px;font-size:15px}
+  .card p:last-child{margin-bottom:0}
+  .k{color:var(--muted);font-size:13px}
+  .todo{
+    background:rgba(240,169,59,0.10);border:1px solid rgba(240,169,59,0.35);
+    border-radius:14px;padding:18px;margin:26px 0;font-size:14px;color:#FFE0B0;
+  }
+  footer{border-top:1px solid var(--line);padding:32px 0;font-size:13px;color:var(--muted)}
+  footer a{color:var(--muted);margin-right:16px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="logo" href="index.html"><span class="dot"></span>Orarise</a>
+    <a class="back" href="index.html">← Retour</a>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <h1>Mentions légales</h1>
+    <p class="maj">Dernière mise à jour : 17 août 2026</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="todo">
+    <strong>À compléter avant toute communication publique.</strong><br>
+    Les champs entre crochets doivent être remplis. Tant qu'aucune structure
+    juridique n'est créée, l'éditeur est une personne physique : son nom et une
+    adresse de contact sont requis.
+  </div>
+
+  <h2>Éditeur du site</h2>
+  <div class="card">
+    <p class="k">Éditeur</p>
+    <p>[Prénom NOM] — personne physique</p>
+    <p class="k" style="margin-top:12px">Adresse</p>
+    <p>[Adresse postale]</p>
+    <p class="k" style="margin-top:12px">Contact</p>
+    <p><a href="mailto:[email]">[email]</a></p>
+    <p class="k" style="margin-top:12px">Directeur de la publication</p>
+    <p>[Prénom NOM]</p>
+  </div>
+  <p>
+    Le site est édité à titre non professionnel dans le cadre du développement
+    d'un projet d'application mobile. Ces informations seront remplacées par
+    celles de la structure juridique dès sa création.
+  </p>
+
+  <h2>Hébergement</h2>
+  <div class="card">
+    <p>GitHub, Inc. — GitHub Pages</p>
+    <p>88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis</p>
+    <p><a href="https://github.com" rel="noopener">github.com</a></p>
+  </div>
+
+  <h2>Objet du site</h2>
+  <p>
+    Ce site présente Orarise, une application mobile de réveil destinée aux
+    personnes travaillant en horaires décalés, et permet de s'inscrire à une
+    liste d'attente pour être informé de son lancement. L'application n'est pas
+    encore disponible.
+  </p>
+
+  <h2>Propriété intellectuelle</h2>
+  <p>
+    L'ensemble des éléments de ce site — nom Orarise, logo, textes, mise en
+    page, code source, ainsi que les mascottes Ottao et Chupa — est protégé par
+    le droit de la propriété intellectuelle et demeure la propriété de
+    l'éditeur. Toute reproduction ou représentation, totale ou partielle, sans
+    autorisation écrite préalable est interdite.
+  </p>
+
+  <h2>Responsabilité</h2>
+  <p>
+    L'éditeur s'efforce d'assurer l'exactitude des informations publiées, mais
+    ne peut garantir qu'elles soient exemptes d'erreur ou d'omission. Les
+    fonctionnalités décrites correspondent à l'application en cours de
+    développement et sont susceptibles d'évoluer avant sa mise à disposition.
+  </p>
+  <p>
+    L'éditeur ne saurait être tenu responsable d'une indisponibilité temporaire
+    du site, ni des dommages résultant de son utilisation.
+  </p>
+
+  <h2>Liens externes</h2>
+  <p>
+    Ce site peut contenir des liens vers des sites tiers. L'éditeur n'exerce
+    aucun contrôle sur leur contenu et décline toute responsabilité à leur
+    égard.
+  </p>
+
+  <h2>Données personnelles</h2>
+  <p>
+    Le traitement des données collectées via le formulaire d'inscription est
+    détaillé dans la
+    <a href="confidentialite.html">politique de confidentialité</a>.
+  </p>
+
+  <h2>Droit applicable</h2>
+  <p>
+    Les présentes mentions légales sont soumises au droit français. Tout litige
+    relatif à leur interprétation ou à l'utilisation du site relève des
+    tribunaux français compétents.
+  </p>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="index.html">Accueil</a>
+    <a href="confidentialite.html">Confidentialité</a>
+    <p style="margin-top:14px">© 2026 Orarise · Le réveil intelligent pour horaires décalés</p>
+  </div>
+</footer>
+
+</body>
+</html>

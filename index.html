@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Orarise — Le réveil qui lit ton planning</title>
+<title>Orarise — Il se lève avant toi</title>
 <style>
   :root{
     --ink:#0B0A10;
@@ -62,6 +62,12 @@
   }
   .eyebrow .pulse{width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 0 rgba(34,211,160,0.6);animation:pulse 2s infinite}
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,211,160,0.5)}70%{box-shadow:0 0 0 10px rgba(34,211,160,0)}100%{box-shadow:0 0 0 0 rgba(34,211,160,0)}}
+  /* La signature passe avant le titre : c'est elle qu'on retient, le
+     titre explique. L'inverse ferait un slogan décoratif. */
+  .signature{
+    font-size:15px;letter-spacing:3px;text-transform:uppercase;font-weight:700;
+    color:var(--dawn1);margin-bottom:16px;
+  }
   h1{
     font-size:clamp(38px,6vw,62px);line-height:1.02;letter-spacing:-2px;font-weight:800;
     margin-bottom:22px;
@@ -198,8 +204,9 @@
   <div class="wrap hero-inner">
     <div>
       <span class="eyebrow"><span class="pulse"></span>Bientôt disponible</span>
-      <h1>Le réveil qui lit <span class="grad">ton planning</span> à ta place.</h1>
-      <p class="sub">Tu prends ton planning en photo. Orarise en extrait tes horaires, calcule l'heure de réveil idéale selon ton trajet et le trafic, et te réveille pile quand il faut. Pensé pour ceux qui travaillent en horaires décalés.</p>
+      <p class="signature">Il se lève avant toi.</p>
+      <h1>Le réveil des <span class="grad">horaires décalés</span>.</h1>
+      <p class="sub">Tu photographies ton planning. Orarise en extrait tes horaires, calcule ton heure de lever selon ton trajet et le trafic, et vérifie la route pendant ta nuit — pour t'avancer si elle se dégrade.</p>
       <div class="hero-actions">
         <a href="#waitlist" class="btn-primary">Être prévenu au lancement</a>
         <span class="hero-note">Gratuit · Sans engagement</span>
@@ -365,7 +372,7 @@
       <a href="confidentialite.html">Confidentialité</a>
       <a href="mailto:orariseapp@gmail.com">Contact</a>
     </div>
-    <p>© 2026 Orarise · Le réveil intelligent pour horaires décalés · Données hébergées en France 🇫🇷</p>
+    <p>© 2026 Orarise · Il se lève avant toi · Données hébergées en France 🇫🇷</p>
   </div>
 </footer>
 

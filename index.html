@@ -27,7 +27,7 @@
     overflow-x:hidden;
   }
   .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
- 
+
   /* ── NAV ── */
   nav{
     position:sticky;top:0;z-index:50;
@@ -44,7 +44,7 @@
     cursor:pointer;text-decoration:none;transition:transform .15s,background .15s;
   }
   .nav-cta:hover{background:var(--violet-deep);transform:translateY(-1px)}
- 
+
   /* ── HERO ── */
   .hero{position:relative;padding:90px 0 70px;overflow:hidden}
   .hero::before{
@@ -77,7 +77,7 @@
   }
   .btn-primary:hover{transform:translateY(-2px)}
   .hero-note{font-size:13px;color:var(--muted)}
- 
+
   /* ── PHONE MOCK ── */
   .phone{
     justify-self:center;width:280px;height:570px;border-radius:38px;
@@ -96,20 +96,20 @@
   .ps-chip .v{font-size:15px;font-weight:800;margin-top:2px}
   .ps-banner{margin-top:18px;background:rgba(255,138,91,0.14);border:1px solid rgba(255,138,91,0.3);border-radius:12px;padding:11px 13px;font-size:12px;line-height:1.4;color:#FFD3BC}
   .ps-btn{margin-top:18px;background:var(--violet);border-radius:12px;text-align:center;padding:14px;font-weight:700;font-size:14px}
- 
+
   /* ── LOGOS STRIP ── */
   .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0;margin-top:50px}
   .strip-inner{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;text-align:center}
   .strip p{font-size:13px;color:var(--muted);width:100%;margin-bottom:6px}
   .strip .who{font-size:15px;font-weight:600;color:#D8CFC2}
   .strip .sep{color:var(--violet)}
- 
+
   /* ── SECTIONS ── */
   section{padding:80px 0}
   .sec-label{font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--violet);margin-bottom:14px}
   .sec-title{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-1px;line-height:1.1;margin-bottom:18px;max-width:620px}
   .sec-intro{font-size:17px;color:#C4BBAE;line-height:1.6;max-width:560px;margin-bottom:46px}
- 
+
   /* ── STEPS (the schedule-grid signature) ── */
   .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
   .step{
@@ -123,7 +123,7 @@
   }
   .step h3{font-size:18px;font-weight:700;margin-bottom:8px}
   .step p{font-size:14px;color:var(--muted);line-height:1.55}
- 
+
   /* ── FEATURES ── */
   .feats{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
   .feat{display:flex;gap:16px;background:rgba(255,255,255,0.025);border:1px solid var(--line);border-radius:16px;padding:22px}
@@ -139,7 +139,7 @@
     font-weight:800;color:var(--muted);border:1px solid var(--line);
     border-radius:6px;padding:2px 6px;margin-left:8px;vertical-align:2px;
   }
- 
+
   /* ── WAITLIST ── */
   .waitlist{position:relative;overflow:hidden;border-radius:28px;margin:0 24px;background:linear-gradient(135deg,#241B14,#2E2114);border:1px solid rgba(240,169,59,0.3)}
   .waitlist::before{content:"";position:absolute;inset:0;background:radial-gradient(500px 200px at 80% 0%,rgba(255,138,91,0.2),transparent 60%)}
@@ -166,7 +166,7 @@
   .success{display:none;background:rgba(34,211,160,0.12);border:1px solid rgba(34,211,160,0.4);border-radius:14px;padding:18px;color:var(--mint);font-weight:600;font-size:15px;max-width:440px;margin:0 auto}
   .count{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.06);border:1px solid var(--line);border-radius:99px;padding:7px 16px;font-size:13px;color:#D8CFC2;margin-bottom:26px}
   .count b{color:var(--mint)}
- 
+
   /* ── FOOTER ── */
   footer{border-top:1px solid var(--line);padding:40px 0;margin-top:80px}
   .foot-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
@@ -174,7 +174,7 @@
   .foot-links{display:flex;gap:18px;flex-wrap:wrap}
   .foot-links a{font-size:13px;color:var(--muted);text-decoration:none}
   .foot-links a:hover{color:var(--dawn2)}
- 
+
   @media(max-width:820px){
     .hero-inner{grid-template-columns:1fr;gap:50px;text-align:center}
     .eyebrow,.hero-actions{justify-content:center}
@@ -185,14 +185,14 @@
 </style>
 </head>
 <body>
- 
+
 <nav>
   <div class="wrap nav-inner">
     <div class="logo"><span class="dot"></span>Orarise</div>
     <a href="#waitlist" class="nav-cta">Rejoindre la liste</a>
   </div>
 </nav>
- 
+
 <!-- HERO -->
 <header class="hero">
   <div class="wrap hero-inner">
@@ -205,7 +205,7 @@
         <span class="hero-note">Gratuit · Sans engagement</span>
       </div>
     </div>
- 
+
     <!-- Phone mockup -->
     <div class="phone">
       <div class="phone-screen">
@@ -224,7 +224,7 @@
     </div>
   </div>
 </header>
- 
+
 <!-- WHO -->
 <div class="strip">
   <div class="wrap strip-inner">
@@ -232,7 +232,7 @@
     <span class="who">Hôpitaux <span class="sep">·</span> Usines <span class="sep">·</span> Sécurité <span class="sep">·</span> Restauration <span class="sep">·</span> Transports <span class="sep">·</span> Commerce</span>
   </div>
 </div>
- 
+
 <!-- HOW -->
 <section>
   <div class="wrap">
@@ -262,7 +262,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- FEATURES -->
 <section style="padding-top:20px">
   <div class="wrap">
@@ -296,7 +296,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- À VENIR -->
 <section style="padding-top:20px">
   <div class="wrap">
@@ -335,7 +335,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- WAITLIST -->
 <section id="waitlist" style="padding-top:20px">
   <div class="waitlist">
@@ -356,7 +356,7 @@
     </div>
   </div>
 </section>
- 
+
 <footer>
   <div class="wrap foot-inner">
     <div class="logo"><span class="dot"></span>Orarise</div>
@@ -368,7 +368,7 @@
     <p>© 2026 Orarise · Le réveil intelligent pour horaires décalés · Données hébergées en France 🇫🇷</p>
   </div>
 </footer>
- 
+
 <script>
   /* ── Liste d'attente — Supabase, région Paris (eu-west-3) ──────────
      La clé « publishable » est conçue pour être exposée côté client :
@@ -378,19 +378,49 @@
      donc récupérer la liste des inscrits avec cette clé.            */
   const SUPABASE_URL = "https://ilgmgklonvflwmwnlvga.supabase.co";
   const SUPABASE_KEY = "sb_publishable_i1S_hnpiCtreN3khCxSeBg_sheZ1GDk";
- 
-  async function joinWaitlist(e){
+
+  /* D'où vient cette personne ?
+ *
+ * Un lien ou un QR code peut porter une étiquette : orarise.fr/?src=vestiaire.
+ * On l'enregistre avec l'inscription, ce qui permet de savoir quel canal
+ * amène des gens — l'affiche du vestiaire, le groupe de collègues, le
+ * bouche-à-oreille.
+ *
+ * Ce n'est pas un traceur : rien n'est déposé sur l'appareil du visiteur,
+ * rien ne le suit d'un site à l'autre. C'est une étiquette écrite dans le
+ * lien, transmise une fois, au moment où la personne choisit de s'inscrire.
+ *
+ * On la garde en mémoire de session pour qu'elle survive à un aller-retour
+ * vers les mentions légales avant l'inscription. La mémoire de session
+ * s'efface à la fermeture de l'onglet. */
+function origine(){
+  try{
+    const url = new URLSearchParams(location.search).get('src');
+    if(url){
+      sessionStorage.setItem('orarise_src', url);
+      return url.slice(0, 40);
+    }
+    const memorise = sessionStorage.getItem('orarise_src');
+    if(memorise) return memorise.slice(0, 40);
+  }catch(e){
+    // Navigation privée, stockage refusé : on retombe simplement sur la
+    // valeur par défaut. Une statistique manquante ne casse rien.
+  }
+  return 'landing';
+}
+
+async function joinWaitlist(e){
     e.preventDefault();
- 
+
     const champ  = document.getElementById('email');
     const bouton = document.querySelector('#waitform button');
     const email  = champ.value.trim();
     if(!email) return false;
- 
+
     const libelle = bouton.textContent;
     bouton.disabled = true;
     bouton.textContent = "…";
- 
+
     try{
       const r = await fetch(SUPABASE_URL + "/rest/v1/waitlist", {
         method: "POST",
@@ -403,9 +433,9 @@
           "Content-Type": "application/json",
           "Prefer": "return=minimal"
         },
-        body: JSON.stringify({ email: email, source: "landing" })
+        body: JSON.stringify({ email: email, source: origine() })
       });
- 
+
       /* 409 = adresse déjà présente (contrainte d'unicité).
          Pour la personne c'est un succès : elle EST inscrite.
          Et on évite de révéler qui figure déjà dans la liste.     */
@@ -414,10 +444,10 @@
         document.getElementById('success').style.display  = 'block';
         return false;
       }
- 
+
       console.error("Supabase a répondu", r.status, await r.text());
       throw new Error("HTTP " + r.status);
- 
+
     }catch(err){
       console.error(err);
       bouton.disabled = false;
@@ -426,7 +456,7 @@
     }
     return false;
   }
- 
+
   // Small entrance animation for the phone
   window.addEventListener('load', ()=>{
     const phone = document.querySelector('.phone');
@@ -438,9 +468,6 @@
     }
   });
 </script>
- 
+
 </body>
 </html>
- 
-
-Appuyez et maintenez pour enregistrerCtrl+D

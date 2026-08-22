@@ -1,27 +1,32 @@
 <style>
-  /* Tout est masqué UNIQUEMENT si .js-anim est présent sur <html>, et
-     c'est le script lui-même qui le pose. Sans ça, une erreur JS ou une
-     extension bloquante laisserait la page entièrement blanche. */
   .js-anim .apparait {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(28px);
     will-change: opacity, transform;
   }
   .js-anim .apparait.vu {
     opacity: 1;
     transform: none;
     transition:
-      opacity .55s cubic-bezier(.22, .8, .28, 1),
-      transform .55s cubic-bezier(.22, .8, .28, 1);
+      opacity .6s cubic-bezier(.22, .8, .28, 1),
+      transform .6s cubic-bezier(.22, .8, .28, 1);
   }
-  .js-anim .apparait[data-rang="1"].vu { transition-delay: .07s; }
-  .js-anim .apparait[data-rang="2"].vu { transition-delay: .14s; }
-  .js-anim .apparait[data-rang="3"].vu { transition-delay: .21s; }
-  .js-anim .apparait[data-rang="4"].vu { transition-delay: .28s; }
-  .js-anim .apparait[data-rang="5"].vu { transition-delay: .35s; }
+  .js-anim .apparait[data-rang="1"].vu { transition-delay: .08s; }
+  .js-anim .apparait[data-rang="2"].vu { transition-delay: .16s; }
+  .js-anim .apparait[data-rang="3"].vu { transition-delay: .24s; }
+  .js-anim .apparait[data-rang="4"].vu { transition-delay: .32s; }
+  .js-anim .apparait[data-rang="5"].vu { transition-delay: .40s; }
 
   @media (prefers-reduced-motion: reduce) {
     .js-anim .apparait { opacity: 1; transform: none; transition: none; }
+  }
+
+  #anim-debug {
+    position: fixed; left: 12px; bottom: 12px; z-index: 9999;
+    background: #F0A93B; color: #16110C;
+    font: 700 13px/1.4 system-ui, sans-serif;
+    padding: 8px 12px; border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.4);
   }
 </style>
 
@@ -29,61 +34,8 @@
 (function () {
   'use strict';
 
-  var possible = 'IntersectionObserver' in window;
-  var sobre = window.matchMedia &&
-              window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!possible) return;
+  var debug = location.search.indexOf('anim=debug') !== -1;
 
-  var GROUPES = [
-    '.strip-inner > *',
-    'section .sec-label',
-    'section .sec-title',
-    'section .sec-intro',
-    '.steps > .step',
-    '.feats > .feat',
-    '.waitlist',
-    'footer .foot-inner > *',
-    '.apparait-moi'
-  ];
-
-  var cibles = [];
-  GROUPES.forEach(function (selecteur) {
-    var lot = Array.prototype.slice.call(document.querySelectorAll(selecteur));
-    lot.forEach(function (el, i) {
-      if (el.closest && el.closest('.hero, nav')) return;
-      if (el.classList.contains('apparait')) return;
-      el.classList.add('apparait');
-      if (i < 5) el.setAttribute('data-rang', String(i + 1));
-      cibles.push(el);
-    });
-  });
-
-  if (!cibles.length) return;
-  document.documentElement.classList.add('js-anim');
-
-  if (sobre) {
-    cibles.forEach(function (el) { el.classList.add('vu'); });
-    return;
-  }
-
-  var observateur = new IntersectionObserver(function (entrees) {
-    entrees.forEach(function (e) {
-      if (!e.isIntersecting) return;
-      e.target.classList.add('vu');
-      observateur.unobserve(e.target);
-    });
-  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.01 });
-
-  cibles.forEach(function (el) { observateur.observe(el); });
-
-  requestAnimationFrame(function () {
-    cibles.forEach(function (el) {
-      var r = el.getBoundingClientRect();
-      if (r.top < window.innerHeight * 0.9) {
-        el.classList.add('vu');
-        observateur.unobserve(el);
-      }
-    });
-  });
-})();
-</script>
+  function badge(texte, ok) {
+    if (!debug) return;
+    var d =

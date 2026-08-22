@@ -1,9 +1,69 @@
+
+Cloud
+/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Index · HTML
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Orarise — Il se lève avant toi</title>
+<script>
+/* ── À LIRE AVANT DE TOUCHER À CE BLOC ────────────────────────────────
+   Cette ligne doit rester DANS LE <head>, avant tout rendu.
+ 
+   Le script d'animation est en bas de page. S'il posait lui-même le
+   masquage, le navigateur aurait déjà peint le hero visible : on
+   verrait le titre et le téléphone apparaître, disparaître, puis
+   revenir. C'est exactement le clignotement qu'on a chassé deux fois.
+ 
+   Le filet de sécurité compte autant : si le script du bas ne s'exécute
+   jamais — erreur JavaScript, extension bloquante, fichier tronqué — on
+   retire le masquage au bout de deux secondes. Mieux vaut une page sans
+   animation qu'une page blanche que personne ne viendra signaler.    */
+(function(){
+  var h = document.documentElement;
+  h.className += ' js-anim';
+  setTimeout(function(){
+    if(!h.hasAttribute('data-anim-prete')){
+      h.className = h.className.replace(' js-anim','');
+    }
+  }, 2000);
+})();
+</script>
 <style>
   :root{
     --ink:#0B0A10;
@@ -194,6 +254,17 @@
      entièrement blanche. Un site vitrine invisible ne se remarque pas :
      il se remarque le jour où l'on constate que personne ne s'inscrit.
      ══════════════════════════════════════════════════════════════════ */
+  /* Masqué par SÉLECTEUR, pas par la classe `.apparait` : celle-ci est
+     posée par le script du bas, donc trop tard pour le hero. Ces
+     éléments-là ne doivent jamais être peints visibles, même une seule
+     image. */
+  .js-anim .hero .eyebrow,
+  .js-anim .hero .signature,
+  .js-anim .hero h1,
+  .js-anim .hero .sub,
+  .js-anim .hero .hero-actions{opacity:0;transform:translateY(26px)}
+  .js-anim .phone{opacity:0;transform:translateY(54px) rotate(-1.5deg)}
+ 
   .js-anim .apparait{opacity:0;transform:translateY(26px);will-change:opacity,transform}
   .js-anim .apparait.vu{
     opacity:1;transform:none;
@@ -510,7 +581,13 @@ async function joinWaitlist(e){
  
   /* `'X' in window` ne suffit pas : la propriété peut exister en valant
      undefined. On vérifie que c'est bien une fonction. */
-  if(typeof window.IntersectionObserver !== 'function') return;
+  if(typeof window.IntersectionObserver !== 'function'){
+    /* Le <head> a masqué ; sans observateur on ne pourra rien révéler.
+       On retire donc le masquage tout de suite plutôt que d'attendre
+       les deux secondes du filet. */
+    document.documentElement.classList.remove('js-anim');
+    return;
+  }
  
   var cibles = [];
   function tout_montrer(){ cibles.forEach(function(el){ el.classList.add('vu'); }); }
@@ -519,6 +596,7 @@ async function joinWaitlist(e){
     var GROUPES = [
       /* Le hero d'abord : il entre à l'ouverture, en cascade, texte et
          téléphone ensemble. */
+      '.hero .eyebrow',
       '.hero .signature',
       '.hero h1',
       '.hero .sub',
@@ -546,7 +624,11 @@ async function joinWaitlist(e){
     });
     if(!cibles.length) return;
  
+    /* Le masquage est déjà en place depuis le <head>. On confirme ici
+       que le relais est pris : le filet des deux secondes ne se
+       déclenchera pas. */
     document.documentElement.classList.add('js-anim');
+    document.documentElement.setAttribute('data-anim-prete', '1');
  
     if(window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches){
       tout_montrer();

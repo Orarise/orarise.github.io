@@ -474,6 +474,88 @@ async function joinWaitlist(e){
       );
     }
   });
+</script><style>
+  .js-anim .apparait{opacity:0;transform:translateY(26px);will-change:opacity,transform}
+  .js-anim .apparait.vu{
+    opacity:1;transform:none;
+    transition:opacity .6s cubic-bezier(.22,.8,.28,1),transform .6s cubic-bezier(.22,.8,.28,1);
+  }
+  .js-anim .apparait[data-rang="1"].vu{transition-delay:.08s}
+  .js-anim .apparait[data-rang="2"].vu{transition-delay:.16s}
+  .js-anim .apparait[data-rang="3"].vu{transition-delay:.24s}
+  .js-anim .apparait[data-rang="4"].vu{transition-delay:.32s}
+  .js-anim .apparait[data-rang="5"].vu{transition-delay:.40s}
+  .js-anim .apparait[data-rang="6"].vu{transition-delay:.48s}
+  @media(prefers-reduced-motion:reduce){
+    .js-anim .apparait{opacity:1;transform:none;transition:none}
+  }
+</style>
+<script>
+(function(){
+  'use strict';
+  if(typeof window.IntersectionObserver !== 'function') return;
+  var cibles = [];
+  function tout_montrer(){ cibles.forEach(function(el){ el.classList.add('vu'); }); }
+  try{
+    var GROUPES = ['.strip-inner > *','section .sec-label','section .sec-title',
+      'section .wrap > p','.steps > .step','.feats > .feat','.waitlist',
+      'footer .foot-inner > *','.apparait-moi'];
+    GROUPES.forEach(function(sel){
+      Array.prototype.forEach.call(document.querySelectorAll(sel), function(el, i){
+        if(el.closest && el.closest('.hero, nav')) return;
+        if(el.classList.contains('apparait')) return;
+        el.classList.add('apparait');
+        if(i < 6) el.setAttribute('data-rang', String(i + 1));
+        cibles.push(el);
+      });
+    });
+    if(!cibles.length) return;
+    document.documentElement.classList.add('js-anim');
+    if(window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+      tout_montrer(); return;
+    }
+    var restants = cibles.slice();
+    function balayer(){
+      var doc = document.documentElement;
+      if(window.innerHeight + window.scrollY >= doc.scrollHeight - 2){
+        restants.slice().forEach(function(el){ el.classList.add('vu'); });
+        restants.length = 0;
+        window.removeEventListener('scroll', demander);
+        window.removeEventListener('resize', demander);
+        return;
+      }
+      var limite = window.innerHeight * 0.9;
+      for(var i = restants.length - 1; i >= 0; i--){
+        var el = restants[i];
+        if(el.getBoundingClientRect().top < limite){
+          el.classList.add('vu'); obs.unobserve(el); restants.splice(i, 1);
+        }
+      }
+      if(!restants.length){
+        window.removeEventListener('scroll', demander);
+        window.removeEventListener('resize', demander);
+      }
+    }
+    var enAttente = false;
+    function demander(){
+      if(enAttente) return;
+      enAttente = true;
+      requestAnimationFrame(function(){ enAttente = false; balayer(); });
+    }
+    var obs = new IntersectionObserver(function(entrees){
+      var bouge = false;
+      entrees.forEach(function(e){ if(e.isIntersecting) bouge = true; });
+      if(bouge) demander();
+    }, { rootMargin:'0px 0px -10% 0px', threshold:0.01 });
+    cibles.forEach(function(el){ obs.observe(el); });
+    window.addEventListener('scroll', demander, { passive:true });
+    window.addEventListener('resize', demander, { passive:true });
+    demander();
+  }catch(err){
+    document.documentElement.classList.remove('js-anim');
+    tout_montrer();
+  }
+})();
 </script>
 
 </body>

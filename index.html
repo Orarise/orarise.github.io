@@ -187,6 +187,17 @@
   }
   .form button:hover{transform:translateY(-2px)}
   .form button:disabled{opacity:.6;cursor:default;transform:none}
+  /* ── « De la première heure » ──
+     Encadré discret, dans l'ambre de la marque : il doit se remarquer
+     sans voler la vedette au champ e-mail, qui reste le seul geste
+     demandé. */
+  .premiere-heure{
+    display:inline-flex;flex-direction:column;gap:6px;text-align:left;
+    background:rgba(240,169,59,0.09);border:1px solid rgba(240,169,59,0.32);
+    border-radius:14px;padding:14px 18px;margin:0 auto 22px;max-width:440px;
+  }
+  .ph-titre{font-size:13px;font-weight:800;color:var(--dawn2);letter-spacing:.4px}
+  .ph-texte{font-size:12.5px;color:#D8CFC2;line-height:1.5}
   .form-note{font-size:12.5px;color:var(--muted);margin-top:16px;line-height:1.5}
   .form-note a{color:var(--dawn2)}
   .success{display:none;background:rgba(34,211,160,0.12);border:1px solid rgba(34,211,160,0.4);border-radius:14px;padding:18px;color:var(--mint);font-weight:600;font-size:15px;max-width:440px;margin:0 auto}
@@ -199,6 +210,12 @@
   .foot-links{display:flex;gap:18px;flex-wrap:wrap}
   .foot-links a{font-size:13px;color:var(--muted);text-decoration:none}
   .foot-links a:hover{color:var(--dawn2)}
+  /* Dernière ligne de la page. Volontairement plus discrète que le reste
+     du pied : c'est une mention, pas un argument de vente. */
+  .propulse{margin-top:28px;text-align:center}
+  .propulse p{font-size:12px;color:var(--muted);opacity:.7;letter-spacing:.02em}
+  .propulse a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line)}
+  .propulse a:hover{color:var(--dawn2);border-bottom-color:var(--dawn2)}
   /* Windows ne rend pas les drapeaux emoji : il affiche « FR » à la
      place. On dessine donc le drapeau, il s'affiche partout. */
   .drapeau{display:inline-block;width:15px;height:10px;vertical-align:-1px;
@@ -435,6 +452,17 @@
       <div class="count">🌅&nbsp;Inscription en avant-première</div>
       <h2>Sois parmi les premiers à tester Orarise.</h2>
       <p>Laisse ton email et reçois une invitation dès l'ouverture. Aucun spam, juste le lancement.</p>
+ 
+      <!-- La contrepartie de l'inscription, dite avant le formulaire et
+           pas après : c'est elle qui donne une raison de le remplir. Et
+           elle est volontairement modeste — annoncer un avantage qu'on
+           devrait ensuite retirer coûterait plus cher que de n'avoir rien
+           annoncé. -->
+      <div class="premiere-heure">
+        <span class="ph-titre">De la première heure</span>
+        <span class="ph-texte">La mention permanente de ceux qui étaient là avant la sortie. Elle s'affiche sur ton profil et ne s'obtiendra plus jamais après.</span>
+      </div>
+ 
       <form class="form" id="waitform" onsubmit="return joinWaitlist(event)">
         <input type="email" id="email" name="email" placeholder="ton@email.fr" required>
         <button type="submit">Je m'inscris</button>
@@ -457,6 +485,11 @@
       <a href="mailto:orariseapp@gmail.com">Contact</a>
     </div>
     <p>© 2026 Orarise · Il se lève avant toi · Données hébergées en France<span class="drapeau" role="img" aria-label="France"><svg viewBox="0 0 3 2" width="15" height="10" aria-hidden="true"><rect width="1" height="2" x="0" fill="#0055A4"/><rect width="1" height="2" x="1" fill="#F5F5F5"/><rect width="1" height="2" x="2" fill="#EF4135"/></svg></span></p>
+  </div>
+  <!-- `apparait-moi` : le crochet prévu pour poser une apparition au
+       défilement à la main, sans toucher à la liste des groupes. -->
+  <div class="wrap propulse apparait-moi">
+    <p>Propulsé par <a href="https://claude.ai" target="_blank" rel="noopener">Claude</a></p>
   </div>
 </footer>
 <script>

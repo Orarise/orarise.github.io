@@ -1,250 +1,469 @@
-<!DOCTYPE html>
+
+Cloud
+/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Confidentialite · HTML
+<!doctype html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Politique de confidentialité — Orarise</title>
-<meta name="robots" content="index, follow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Orarise — Politique de confidentialité</title>
+<meta name="description" content="Ce qu'Orarise sait de toi, ce qui reste sur ton téléphone, et les quatre seules choses qui en sortent.">
 <style>
   :root{
-    --ink:#0B0A10; --night:#15131C;
-    --dawn1:#F0A93B; --dawn2:#FFCE6B;
-    --mint:#4FD1A0; --muted:#9A8F86;
+    --ink:#0B0A10;
+    --night:#15131C;
+    --dawn1:#F0A93B;
+    --dawn2:#FFCE6B;
+    --violet:#F0A93B;
+    --mint:#4FD1A0;
+    --muted:#9A8F86;
     --line:rgba(255,255,255,0.08);
   }
   *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
   body{
     font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-    background:var(--ink); color:#F5EFE6;
-    -webkit-font-smoothing:antialiased; line-height:1.65;
+    background:var(--ink);
+    color:#F5EFE6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    line-height:1.65;
   }
   .wrap{max-width:760px;margin:0 auto;padding:0 24px}
-
+ 
   nav{
     position:sticky;top:0;z-index:50;
-    background:rgba(16,16,26,0.85); backdrop-filter:blur(12px);
+    background:rgba(11,10,16,0.86);backdrop-filter:blur(12px);
     border-bottom:1px solid var(--line);
   }
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .logo{font-weight:800;font-size:20px;letter-spacing:-0.5px;display:flex;align-items:center;gap:10px;color:#F5EFE6;text-decoration:none}
-  .logo .dot{width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--dawn1),#C77F1A);box-shadow:0 0 14px var(--dawn1)}
-  .back{color:var(--dawn1);text-decoration:none;font-size:14px;font-weight:600}
-
-  header{padding:56px 0 32px;border-bottom:1px solid var(--line)}
-  h1{font-size:clamp(30px,5vw,42px);font-weight:800;letter-spacing:-1.5px;line-height:1.1}
-  .maj{font-size:13px;color:var(--muted);margin-top:12px}
-  .chapeau{font-size:16px;color:#D8CFC2;margin-top:18px}
-
-  main{padding:40px 0 80px}
-  h2{
-    font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-    color:var(--dawn1);margin:40px 0 14px;
-  }
-  h2:first-of-type{margin-top:0}
-  p{font-size:15.5px;color:#D8CFC2;margin-bottom:14px}
-  ul{margin:0 0 16px 20px}
-  li{font-size:15.5px;color:#D8CFC2;margin-bottom:8px}
+  .nav-inner{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
+  .logo{font-weight:800;font-size:22px;letter-spacing:-0.5px;display:flex;align-items:center;gap:8px;
+        color:#F5EFE6;text-decoration:none}
+  .logo .dot{width:11px;height:11px;border-radius:50%;
+             background:linear-gradient(135deg,var(--dawn1),var(--violet));
+             box-shadow:0 0 14px var(--dawn1)}
+  .retour{font-size:14px;color:var(--muted);text-decoration:none}
+  .retour:hover{color:var(--dawn2)}
+ 
+  header.page{padding:64px 0 8px}
+  h1{font-size:clamp(30px,5vw,42px);line-height:1.15;letter-spacing:-1px;font-weight:800}
+  .chapeau{font-size:17px;color:#D8CFC4;margin-top:18px}
+  .maj{font-size:13px;color:var(--muted);margin-top:22px}
+ 
+  h2{font-size:22px;font-weight:700;letter-spacing:-0.3px;margin:52px 0 14px;
+     padding-top:26px;border-top:1px solid var(--line)}
+  h3{font-size:16px;font-weight:700;margin:26px 0 8px;color:var(--dawn2)}
+  p{margin:12px 0;color:#E4DBD0}
+  strong{color:#FFF;font-weight:600}
   a{color:var(--dawn2)}
-  strong{color:#F5EFE6}
-  .card{
-    background:rgba(255,255,255,0.03);border:1px solid var(--line);
-    border-radius:14px;padding:20px;margin-bottom:16px;
+ 
+  ul{margin:12px 0 12px 4px;list-style:none}
+  li{margin:10px 0;padding-left:20px;position:relative;color:#E4DBD0}
+  li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;
+             border-radius:50%;background:var(--dawn1);opacity:.75}
+ 
+  .encadre{
+    background:var(--night);border:1px solid var(--line);
+    border-left:3px solid var(--dawn1);
+    border-radius:14px;padding:20px 22px;margin:26px 0;
   }
-  .card p:last-child{margin-bottom:0}
-  .bon{
-    background:rgba(79,209,160,0.10);border:1px solid rgba(79,209,160,0.35);
-    border-radius:14px;padding:18px;margin:22px 0;font-size:15px;color:#B8EFD8;
+  .encadre.vert{border-left-color:var(--mint)}
+  .encadre p:first-child{margin-top:0}
+  .encadre p:last-child{margin-bottom:0}
+ 
+  .tableau{width:100%;border-collapse:collapse;margin:22px 0;font-size:14.5px}
+  .tableau th{
+    text-align:left;padding:12px 10px;border-bottom:1px solid var(--line);
+    color:var(--muted);font-weight:600;font-size:12.5px;
+    text-transform:uppercase;letter-spacing:.06em;
   }
-  .todo{
-    background:rgba(240,169,59,0.10);border:1px solid rgba(240,169,59,0.35);
-    border-radius:14px;padding:18px;margin:26px 0;font-size:14px;color:#FFE0B0;
-  }
-  table{width:100%;border-collapse:collapse;margin-bottom:18px;font-size:14.5px}
-  th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:top}
-  th{color:var(--dawn2);font-size:12px;text-transform:uppercase;letter-spacing:1px;font-weight:700}
-  td{color:#D8CFC2}
-  footer{border-top:1px solid var(--line);padding:32px 0;font-size:13px;color:var(--muted)}
-  footer a{color:var(--muted);margin-right:16px}
+  .tableau td{padding:14px 10px;border-bottom:1px solid var(--line);vertical-align:top;color:#E4DBD0}
+  .tableau tr:last-child td{border-bottom:none}
+  .quoi{font-weight:600;color:#FFF}
+  .defilant{overflow-x:auto;-webkit-overflow-scrolling:touch}
+ 
+  footer{border-top:1px solid var(--line);padding:40px 0;margin-top:80px}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+  .foot-inner p{font-size:13px;color:var(--muted)}
+  .foot-links{display:flex;gap:18px;flex-wrap:wrap}
+  .foot-links a{font-size:13px;color:var(--muted);text-decoration:none}
+  .foot-links a:hover{color:var(--dawn2)}
+  .propulse{margin-top:28px;text-align:center}
+  .propulse p{font-size:12px;color:var(--muted);opacity:.7;letter-spacing:.02em}
+  .propulse a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line)}
+  .propulse a:hover{color:var(--dawn2);border-bottom-color:var(--dawn2)}
+  .drapeau{display:inline-block;width:15px;height:10px;vertical-align:-1px;
+           margin-left:4px;border-radius:1.5px;overflow:hidden}
 </style>
 </head>
 <body>
-
+ 
 <nav>
   <div class="wrap nav-inner">
     <a class="logo" href="index.html"><span class="dot"></span>Orarise</a>
-    <a class="back" href="index.html">← Retour</a>
+    <a class="retour" href="index.html">← Retour au site</a>
   </div>
 </nav>
-
-<header>
-  <div class="wrap">
-    <h1>Politique de confidentialité</h1>
-    <p class="maj">Dernière mise à jour : 21 août 2026</p>
-    <p class="chapeau">
-      Cette page décrit les données collectées par le <strong>site orarise</strong>
-      et ce qui en est fait. Elle sera complétée pour l'application mobile au
-      moment de son lancement.
-    </p>
-  </div>
+ 
+<div class="wrap">
+ 
+<header class="page">
+  <h1>Politique de confidentialité</h1>
+  <p class="chapeau">
+    Orarise est une application locale. Tout ce qu'elle sait de toi est
+    enregistré sur ton téléphone, et rien d'autre. Cette page dit
+    exactement ce qui en sort, quand, et vers qui — et ce que fait le
+    site orarise.fr, qui est un sujet séparé.
+  </p>
+  <p class="maj">Dernière mise à jour : 24 août 2026</p>
 </header>
-
-<main class="wrap">
-
-  <h2>Qui est responsable de vos données</h2>
+ 
+<h2>Qui est responsable</h2>
+ 
+<p>
+  Orarise — l'application comme le site — est éditée par une
+  <strong>personne physique agissant à titre non professionnel</strong>,
+  en France. Son identité n'est pas publiée ici, conformément à ce que la
+  loi permet dans ce cas, mais elle a été communiquée à l'hébergeur du
+  site.
+</p>
+ 
+<p>
+  Pour toute question sur tes données, ou pour exercer tes droits :
+  <a href="mailto:orariseapp@gmail.com">orariseapp@gmail.com</a>.
+</p>
+ 
+<h2>Il n'y a pas de compte</h2>
+ 
+<p>
+  Orarise ne te demande ni adresse e-mail, ni mot de passe, ni
+  identifiant. Il n'existe aucun compte, donc aucun profil à ton nom sur
+  un serveur, et rien qui permette de relier une donnée à toi.
+</p>
+ 
+<div class="encadre vert">
   <p>
-    Le responsable du traitement est l'éditeur du site Orarise,
-    <strong>personne physique agissant à titre non professionnel</strong>.
-    Conformément à l'article 6, III, 2° de la loi pour la confiance dans
-    l'économie numérique, son identité n'est pas rendue publique ; elle a été
-    communiquée à l'hébergeur du site. Voir les
-    <a href="mentions-legales.html">mentions légales</a>.
+    Concrètement : si tu désinstalles l'application, il ne reste rien de
+    toi nulle part. Il n'y a rien à supprimer côté serveur, parce qu'il
+    n'y a jamais rien eu.
   </p>
-  <div class="card">
-    <p>Contact : <a href="mailto:orariseapp@gmail.com">orariseapp@gmail.com</a></p>
-    <p style="margin-top:8px">Réponse sous un mois maximum.</p>
-  </div>
-  <p>
-    Si vous souhaitez exercer vos droits et avez besoin de connaître cette
-    identité, elle vous sera communiquée sur demande à cette adresse. Elle sera
-    publiée ici dès la création d'une structure juridique.
-  </p>
-
-  <h2>Ce que nous collectons</h2>
-  <p>
-    Une seule donnée est collectée sur ce site : <strong>votre adresse
-    email</strong>, et uniquement si vous la saisissez volontairement dans le
-    formulaire d'inscription à la liste d'attente.
-  </p>
-  <p>
-    Aucune autre information n'est demandée. Aucun compte n'est créé. Le site ne
-    collecte ni votre nom, ni votre localisation, ni vos horaires de travail —
-    ces données concerneront l'application, pas ce site.
-  </p>
-
-  <div class="bon">
-    <strong>Aucun cookie, aucun traceur.</strong> Ce site n'utilise ni cookie,
-    ni outil de mesure d'audience, ni pixel publicitaire. C'est pourquoi aucune
-    bannière de consentement ne vous est imposée.
-  </div>
-
-  <p>
-    Une précision, par souci d'exactitude : certains liens vers ce site portent
-    une étiquette d'origine, par exemple <em>orarise.fr/?src=affiche</em>. Si
-    vous vous inscrivez, cette étiquette est enregistrée à côté de votre adresse
-    afin de savoir quel support a fait connaître Orarise — une affiche, un
-    message entre collègues.
-  </p>
-  <p>
-    Ce n'est pas un traceur. Rien n'est déposé sur votre appareil, rien ne vous
-    suit d'un site à l'autre, et cette étiquette ne dit rien de vous : elle
-    désigne le support, pas la personne. Elle n'est transmise qu'au moment où
-    vous choisissez de vous inscrire, et disparaît avec votre adresse si vous
-    demandez son effacement.
-  </p>
-
-  <h2>Pourquoi, et sur quelle base</h2>
-  <table>
+</div>
+ 
+<h2>Ce qui reste sur ton téléphone</h2>
+ 
+<p>
+  Tout, par défaut. Ces données ne quittent jamais l'appareil :
+</p>
+ 
+<ul>
+  <li>Ton prénom, ton âge déclaré, ta photo de profil et ton compagnon.</li>
+  <li>Tes postes de travail : dates, horaires, employeur, lieu.</li>
+  <li>Tes rendez-vous ponctuels : intitulé, date, heure, adresse.</li>
+  <li>Tes réglages : temps de préparation, marge, sonnerie, plage de nuit.</li>
+  <li>Tes points, tes jetons, ta série et l'historique de tes réveils.</li>
+  <li>Tes adresses de domicile et de travail.</li>
+</ul>
+ 
+<p>
+  Tu peux à tout moment <strong>exporter l'intégralité</strong> de ces
+  données dans un fichier, ou <strong>tout effacer</strong>, depuis
+  l'application : <em>Profil → Mes données</em>. La suppression est
+  immédiate et définitive.
+</p>
+ 
+<h2>Ce qui sort de l'application</h2>
+ 
+<p>
+  Quatre choses, et seulement pour rendre le service demandé. Aucune
+  n'est conservée après usage, aucune n'est reliée à une identité.
+</p>
+ 
+<h3>1. Tes adresses, pour calculer un temps de trajet</h3>
+ 
+<p>
+  Ton adresse de domicile et celle de ton lieu de travail sont envoyées à
+  notre serveur, qui interroge le service d'itinéraires de Google, et
+  rend une durée en minutes.
+</p>
+ 
+<p>
+  Cela se produit <strong>quand tu appuies sur « calculer »</strong> —
+  et aussi, <strong>automatiquement pendant la nuit</strong>, si tu as
+  activé le réveil adaptatif. Dans ce cas, l'application vérifie l'état
+  du trafic environ une heure avant ton réveil, sans que tu aies rien à
+  faire, pour avancer ton alarme si la route s'est dégradée. C'est le
+  seul envoi qui ait lieu sans action de ta part, et tu peux le
+  désactiver dans <em>Profil → Mon réveil</em>.
+</p>
+ 
+<h3>2. La photo de ton planning, pour en lire les horaires</h3>
+ 
+<p>
+  Quand tu scannes un planning, la photo est envoyée à notre serveur, qui
+  la transmet au service d'analyse d'images d'Anthropic (Claude) pour en
+  extraire les créneaux. La photo n'est pas conservée après l'analyse.
+</p>
+ 
+<h3>3. Ta ville ou ta position, pour la météo</h3>
+ 
+<p>
+  Le nom de ta ville — ou tes coordonnées si tu as autorisé la
+  géolocalisation, qui est désactivée par défaut — est envoyé à
+  <strong>OpenWeatherMap</strong> pour obtenir la météo affichée sur
+  l'accueil.
+</p>
+ 
+<h3>4. Ce que tu écris quand tu signales une panne</h3>
+ 
+<p>
+  Ton message, le modèle de ton téléphone, sa version d'Android, la
+  version de l'application et l'état de ses autorisations — pour pouvoir
+  comprendre le problème. Ton adresse e-mail n'est incluse que si tu
+  choisis de la donner, et elle ne sert qu'à te répondre.
+</p>
+ 
+<h2>Le tableau complet</h2>
+ 
+<div class="defilant">
+<table class="tableau">
+  <thead>
+    <tr><th>Ce qui part</th><th>Vers qui</th><th>Quand</th></tr>
+  </thead>
+  <tbody>
     <tr>
-      <th>Donnée</th><th>Finalité</th><th>Base légale</th>
+      <td class="quoi">Adresses domicile et travail</td>
+      <td>Notre serveur → Google Maps</td>
+      <td>À l'appui sur « calculer »</td>
     </tr>
     <tr>
-      <td>Adresse email</td>
-      <td>Vous prévenir du lancement de l'application Orarise</td>
-      <td>Votre consentement, donné en soumettant le formulaire</td>
+      <td class="quoi">Adresses domicile et travail</td>
+      <td>Notre serveur → Google Maps</td>
+      <td><strong>Automatiquement la nuit</strong>, si le réveil adaptatif est activé</td>
     </tr>
-  </table>
+    <tr>
+      <td class="quoi">Photo d'un planning</td>
+      <td>Notre serveur → Anthropic (Claude)</td>
+      <td>Au scan</td>
+    </tr>
+    <tr>
+      <td class="quoi">Ville ou coordonnées</td>
+      <td>OpenWeatherMap</td>
+      <td>Affichage de la météo</td>
+    </tr>
+    <tr>
+      <td class="quoi">Créneaux horaires et abréviations de planning</td>
+      <td>Notre serveur</td>
+      <td>Quand tu partages ton planning par code</td>
+    </tr>
+    <tr>
+      <td class="quoi">Message, modèle du téléphone, e-mail facultatif</td>
+      <td>Notre serveur</td>
+      <td>Quand tu signales une panne</td>
+    </tr>
+    <tr>
+      <td class="quoi">Recherche d'une station</td>
+      <td>radio-browser.info</td>
+      <td>Quand tu choisis une radio comme sonnerie</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+ 
+<h2>Le partage de planning</h2>
+ 
+<p>
+  Quand tu partages ton planning avec un collègue, un code à six
+  caractères est créé et le contenu est déposé sur notre serveur pendant
+  <strong>sept jours</strong>, puis effacé automatiquement.
+</p>
+ 
+<p>
+  Ce paquet contient tes créneaux à venir, le nom de l'employeur,
+  l'adresse du lieu de travail et tes abréviations de planning. Il ne
+  contient <strong>ni ton prénom, ni ton adresse personnelle, ni ton
+  temps de trajet</strong> — celui-ci en dirait trop sur l'endroit où tu
+  habites.
+</p>
+ 
+<p>
+  Quand tu envoies tes disponibilités à un proche par message ou par
+  fichier calendrier, rien ne passe par nos serveurs : le message part
+  directement depuis ton téléphone, par l'application de ton choix.
+</p>
+ 
+<h2>Où sont hébergées les données</h2>
+ 
+<p>
+  Nos serveurs sont hébergés en <strong>France (région de Paris)</strong>
+  chez Supabase. Les données qui y transitent — un partage de planning,
+  un signalement de panne — n'y restent que le temps décrit ci-dessus.
+</p>
+ 
+<p>
+  Les services tiers cités (Google, Anthropic, OpenWeatherMap,
+  radio-browser.info) appliquent leurs propres politiques, qui peuvent
+  impliquer un traitement hors de l'Union européenne.
+</p>
+ 
+<h2>Ni publicité, ni revente, ni pistage</h2>
+ 
+<p>
+  Orarise ne contient <strong>aucune bannière publicitaire</strong>,
+  aucun traceur, aucun outil de mesure d'audience tiers. Tes données ne
+  sont ni vendues, ni louées, ni transmises à des annonceurs. Il n'y a
+  rien à vendre : nous ne savons pas qui tu es.
+</p>
+ 
+<h2>Les mineurs</h2>
+ 
+<p>
+  Orarise s'adresse aux personnes qui travaillent en horaires décalés.
+  Si tu déclares avoir moins de 18 ans, aucune publicité et aucun achat
+  ne te sera proposé, quelle que soit l'évolution future de
+  l'application.
+</p>
+ 
+<h2>Tes droits</h2>
+ 
+<p>
+  Le règlement européen te donne un droit d'accès, de rectification,
+  d'effacement, de limitation, d'opposition et de portabilité sur tes
+  données personnelles. Comme Orarise n'a pas de compte, ces droits
+  s'exercent directement dans l'application :
+</p>
+ 
+<ul>
+  <li><strong>Accès et portabilité</strong> — <em>Profil → Mes données → Exporter</em> produit un fichier lisible contenant tout.</li>
+  <li><strong>Effacement</strong> — <em>Profil → Mes données → Supprimer</em>, ou simplement désinstaller l'application.</li>
+  <li><strong>Rectification</strong> — toutes tes données sont modifiables directement dans l'application.</li>
+  <li><strong>Opposition</strong> — le réveil adaptatif, la géolocalisation et le partage se désactivent séparément.</li>
+</ul>
+ 
+<p>
+  Pour toute demande ou réclamation :
+  <a href="mailto:orariseapp@gmail.com">orariseapp@gmail.com</a>. Tu peux
+  aussi saisir la CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener">cnil.fr</a>).
+</p>
+ 
+<h2>Le relevé d'heures</h2>
+ 
+<div class="encadre">
   <p>
-    Votre adresse ne sert à rien d'autre. Elle n'est <strong>ni vendue, ni
-    louée, ni transmise</strong> à des fins commerciales ou publicitaires. Vous
-    ne recevrez pas de lettre d'information régulière : l'engagement est un
-    message au lancement, et c'est tout.
-  </p>
-
-  <h2>Où vos données sont stockées</h2>
-  <div class="bon">
-    <strong>En France.</strong> Votre adresse est enregistrée dans une base de
-    données hébergée par Supabase, en <strong>région Paris (eu-west-3)</strong>.
-    Elle ne quitte pas le territoire français.
-  </div>
-  <p>
-    L'accès à cette base est restreint à l'éditeur et protégé par
-    authentification. Les règles de sécurité en place autorisent uniquement
-    l'ajout d'une adresse depuis le site : la liste des inscrits ne peut être
-    consultée publiquement.
+    Orarise calcule tes heures travaillées, de nuit, de dimanche et de
+    jour férié, à partir du planning que <strong>tu</strong> as saisi.
   </p>
   <p>
-    Le site lui-même est hébergé par GitHub Pages, qui peut journaliser des
-    données techniques de connexion (adresse IP, type de navigateur) à des fins
-    de sécurité et de fonctionnement, sans que l'éditeur y ait accès.
+    Ce relevé <strong>n'est pas un document opposable à un employeur</strong>
+    et n'a aucune valeur juridique. C'est une base pour vérifier ton
+    bulletin de paie et poser une question si un écart apparaît — rien de
+    plus. Ce calcul est fait sur ton téléphone et n'est envoyé nulle part.
   </p>
-
-  <h2>Combien de temps</h2>
-  <p>
-    Votre adresse est conservée jusqu'au lancement de l'application, puis
-    supprimée dans un délai de <strong>trois mois</strong> après l'envoi du
-    message d'annonce — sauf si vous choisissez à ce moment-là de créer un
-    compte.
-  </p>
-  <p>
-    Si le projet était abandonné, l'ensemble des adresses serait supprimé et les
-    inscrits en seraient informés.
-  </p>
-
-  <h2>Vos droits</h2>
-  <p>
-    Conformément au Règlement général sur la protection des données (RGPD), vous
-    disposez des droits suivants :
-  </p>
-  <ul>
-    <li><strong>Accès</strong> — savoir si votre adresse figure dans la liste</li>
-    <li><strong>Rectification</strong> — la corriger</li>
-    <li><strong>Effacement</strong> — être retiré de la liste</li>
-    <li><strong>Opposition</strong> — refuser le traitement</li>
-    <li><strong>Portabilité</strong> — en recevoir une copie</li>
-    <li><strong>Retrait du consentement</strong> — à tout moment, sans justification</li>
-  </ul>
-  <p>
-    Pour exercer l'un de ces droits, écrivez à
-    <a href="mailto:orariseapp@gmail.com">orariseapp@gmail.com</a>. Une réponse vous sera apportée dans un
-    délai maximum d'un mois.
-  </p>
-  <p>
-    Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire
-    une réclamation auprès de la
-    <a href="https://www.cnil.fr" rel="noopener">CNIL</a>, autorité française de
-    protection des données.
-  </p>
-
-  <h2>Mineurs</h2>
-  <p>
-    Ce site n'est pas destiné aux enfants de moins de 15 ans. Aucune inscription
-    n'est sollicitée auprès d'eux. Si une adresse appartenant à un mineur de
-    moins de 15 ans nous était signalée, elle serait supprimée sans délai.
-  </p>
-
-  <h2>Sécurité</h2>
-  <p>
-    Le site est servi exclusivement en HTTPS. L'accès aux adresses collectées
-    est restreint à l'éditeur et protégé par une authentification.
-  </p>
-
-  <h2>Modifications</h2>
-  <p>
-    Cette politique peut évoluer, notamment lors du lancement de l'application
-    ou de la migration de l'hébergement des données. La date de dernière mise à
-    jour figure en haut de cette page. En cas de changement substantiel, les
-    inscrits seront informés par email.
-  </p>
-
-</main>
-
+</div>
+ 
+<h2>Le site orarise.fr</h2>
+ 
+<p>
+  Tout ce qui précède concerne <strong>l'application</strong>. Le site,
+  lui, est beaucoup plus simple.
+</p>
+ 
+<p>
+  <strong>Aucun cookie, aucun traceur.</strong> Le site ne dépose rien sur
+  ton navigateur et ne mesure pas ta visite.
+</p>
+ 
+<p>
+  La seule donnée recueillie est l'<strong>adresse e-mail</strong> que tu
+  saisis volontairement dans le formulaire de liste d'attente. Elle est
+  enregistrée chez Supabase, en région Paris, et sert uniquement à te
+  prévenir de la sortie d'Orarise. Elle n'est <strong>ni vendue, ni
+  louée, ni transmise</strong> à des fins commerciales ou publicitaires.
+  Une demande de suppression à l'adresse de contact est traitée
+  immédiatement.
+</p>
+ 
+<p>
+  Une étiquette d'origine — par exemple <code>?src=affiche</code> — peut
+  être enregistrée avec l'inscription. Elle indique par quel support tu
+  as connu Orarise, et ne dit rien sur toi.
+</p>
+ 
+<p>
+  Le site est hébergé par GitHub Pages, qui peut journaliser des données
+  techniques de connexion auxquelles l'éditeur n'a pas accès.
+</p>
+ 
+<h2>Si cette page change</h2>
+ 
+<p>
+  Toute modification sera publiée ici, avec une nouvelle date de mise à
+  jour. Si un changement devait élargir ce qui sort de l'application, il
+  serait annoncé dans l'application elle-même avant d'entrer en vigueur.
+</p>
+ 
+</div>
+ 
 <footer>
-  <div class="wrap">
-    <a href="index.html">Accueil</a>
-    <a href="mentions-legales.html">Mentions légales</a>
-    <p style="margin-top:14px">© 2026 Orarise · Il se lève avant toi</p>
+  <div class="wrap foot-inner">
+    <div class="logo"><span class="dot"></span>Orarise</div>
+    <div class="foot-links">
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="confidentialite.html">Confidentialité</a>
+      <a href="mailto:orariseapp@gmail.com">Contact</a>
+    </div>
+    <p>© 2026 Orarise · Il se lève avant toi · Données hébergées en France<span class="drapeau" role="img" aria-label="France"><svg viewBox="0 0 3 2" width="15" height="10" aria-hidden="true"><rect width="1" height="2" x="0" fill="#0055A4"/><rect width="1" height="2" x="1" fill="#F5F5F5"/><rect width="1" height="2" x="2" fill="#EF4135"/></svg></span></p>
+  </div>
+  <div class="wrap propulse">
+    <p>Propulsé par <a href="https://claude.ai" target="_blank" rel="noopener">Claude</a></p>
   </div>
 </footer>
-
+ 
 </body>
 </html>
+ 
+

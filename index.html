@@ -7,12 +7,12 @@
 <script>
 /* ── À LIRE AVANT DE TOUCHER À CE BLOC ────────────────────────────────
    Cette ligne doit rester DANS LE <head>, avant tout rendu.
- 
+
    Le script d'animation est en bas de page. S'il posait lui-même le
    masquage, le navigateur aurait déjà peint le hero visible : on
    verrait le titre et le téléphone apparaître, disparaître, puis
    revenir. C'est exactement le clignotement qu'on a chassé deux fois.
- 
+
    Le filet de sécurité compte autant : si le script du bas ne s'exécute
    jamais — erreur JavaScript, extension bloquante, fichier tronqué — on
    retire le masquage au bout de deux secondes. Mieux vaut une page sans
@@ -230,7 +230,7 @@
     .steps{grid-template-columns:1fr}
     .feats{grid-template-columns:1fr}
   }
- 
+
   /* ══════════════════════════════════════════════════════════════════
      APPARITIONS AU DÉFILEMENT
      ──────────────────────────────────────────────────────────────────
@@ -251,13 +251,13 @@
   .js-anim .hero .sub,
   .js-anim .hero .hero-actions{opacity:0;transform:translateY(26px)}
   .js-anim .phone{opacity:0;transform:translateY(54px) rotate(-1.5deg)}
- 
+
   .js-anim .apparait{opacity:0;transform:translateY(26px);will-change:opacity,transform}
   .js-anim .apparait.vu{
     opacity:1;transform:none;
     transition:opacity .6s cubic-bezier(.22,.8,.28,1),transform .6s cubic-bezier(.22,.8,.28,1);
   }
- 
+
   /* Cascade dans un même groupe : les quatre étapes se succèdent au lieu
      d'arriver en bloc. 80 ms d'écart — au-delà, on attend. */
   .js-anim .apparait[data-rang="1"].vu{transition-delay:.08s}
@@ -266,18 +266,18 @@
   .js-anim .apparait[data-rang="4"].vu{transition-delay:.32s}
   .js-anim .apparait[data-rang="5"].vu{transition-delay:.40s}
   .js-anim .apparait[data-rang="6"].vu{transition-delay:.48s}
- 
+
   /* ── LE TÉLÉPHONE ──
      Placé APRÈS les règles de cascade, et c'est nécessaire : à
      spécificité égale, c'est la dernière écrite qui l'emporte.
- 
+
      Il monte de plus loin (54 px) et sur plus longtemps (1,25 s), avec
      un demi-délai pour laisser le texte partir devant. L'ancienne
      version durait 0,7 s et se déclenchait après le chargement des
      images : le téléphone s'affichait, disparaissait, puis rerentrait —
      trop court pour se lire comme une arrivée, assez brusque pour
      ressembler à un défaut.
- 
+
      L'inclinaison est conservée d'un bout à l'autre, sinon il se
      redresserait en arrivant. */
   .js-anim .phone.apparait{transform:translateY(54px) rotate(-1.5deg)}
@@ -286,7 +286,7 @@
     transition:opacity 1.25s cubic-bezier(.16,.84,.28,1) .35s,
                transform 1.25s cubic-bezier(.16,.84,.28,1) .35s;
   }
- 
+
   /* Qui a demandé moins d'animations en a assez d'en subir. */
   @media(prefers-reduced-motion:reduce){
     .js-anim .apparait,
@@ -455,7 +455,7 @@
       <div class="count">🌅&nbsp;Inscription en avant-première</div>
       <h2>Sois parmi les premiers à tester Orarise.</h2>
       <p>Laisse ton email et reçois une invitation dès l'ouverture. Aucun spam, juste le lancement.</p>
- 
+
       <!-- La contrepartie de l'inscription, dite avant le formulaire et
            pas après : c'est elle qui donne une raison de le remplir. Et
            elle est volontairement modeste — annoncer un avantage qu'on
@@ -465,7 +465,7 @@
         <span class="ph-titre">De la première heure</span>
         <span class="ph-texte">La mention permanente de ceux qui étaient là avant la sortie. Elle s'affiche sur ton profil et ne s'obtiendra plus jamais après.</span>
       </div>
- 
+
       <form class="form" id="waitform" onsubmit="return joinWaitlist(event)">
         <input type="email" id="email" name="email" placeholder="ton@email.fr" required>
         <button type="submit">Je m'inscris</button>
@@ -574,7 +574,7 @@ async function joinWaitlist(e){
     }
     return false;
   }
- 
+
   /* L'ancienne animation du téléphone a été retirée d'ici.
      Elle se déclenchait sur `window.load`, donc APRÈS le chargement des
      images : le téléphone s'affichait, disparaissait, puis rerentrait en
@@ -582,14 +582,14 @@ async function joinWaitlist(e){
      s'ignorent, trop brèves pour se lire comme un mouvement.
      Le hero entre désormais d'un seul tenant, plus bas dans ce fichier. */
 </script>
- 
+
 <!-- ══════════════════════════════════════════════════════════════════
      APPARITIONS AU DÉFILEMENT
      ══════════════════════════════════════════════════════════════════ -->
 <script>
 (function(){
   'use strict';
- 
+
   /* `'X' in window` ne suffit pas : la propriété peut exister en valant
      undefined. On vérifie que c'est bien une fonction. */
   if(typeof window.IntersectionObserver !== 'function'){
@@ -599,10 +599,10 @@ async function joinWaitlist(e){
     document.documentElement.classList.remove('js-anim');
     return;
   }
- 
+
   var cibles = [];
   function tout_montrer(){ cibles.forEach(function(el){ el.classList.add('vu'); }); }
- 
+
   try{
     var GROUPES = [
       /* Le hero d'abord : il entre à l'ouverture, en cascade, texte et
@@ -623,7 +623,7 @@ async function joinWaitlist(e){
       'footer .foot-inner > *',
       '.apparait-moi'          // à poser à la main sur n'importe quel bloc
     ];
- 
+
     GROUPES.forEach(function(sel){
       Array.prototype.forEach.call(document.querySelectorAll(sel), function(el, i){
         if(el.closest && el.closest('nav')) return;   // la barre reste fixe
@@ -634,20 +634,20 @@ async function joinWaitlist(e){
       });
     });
     if(!cibles.length) return;
- 
+
     /* Le masquage est déjà en place depuis le <head>. On confirme ici
        que le relais est pris : le filet des deux secondes ne se
        déclenchera pas. */
     document.documentElement.classList.add('js-anim');
     document.documentElement.setAttribute('data-anim-prete', '1');
- 
+
     if(window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches){
       tout_montrer();
       return;
     }
- 
+
     var restants = cibles.slice();
- 
+
     /* ── LE BALAYAGE, ET C'EST LUI QUI COMPTE ──────────────────────
        IntersectionObserver ne signale que ce qui est À L'ÉCRAN. Un
        visiteur qui clique sur « Rejoindre la liste » saute directement
@@ -682,7 +682,7 @@ async function joinWaitlist(e){
         window.removeEventListener('resize', demander);
       }
     }
- 
+
     /* Cadencé sur le rafraîchissement de l'écran : jamais plus d'un
        calcul par image, même si le navigateur déclenche cent événements
        de défilement par seconde. C'est ce qui garde les téléphones
@@ -693,24 +693,24 @@ async function joinWaitlist(e){
       enAttente = true;
       requestAnimationFrame(function(){ enAttente = false; balayer(); });
     }
- 
+
     var obs = new IntersectionObserver(function(entrees){
       var bouge = false;
       entrees.forEach(function(e){ if(e.isIntersecting) bouge = true; });
       if(bouge) demander();
     }, { rootMargin:'0px 0px -10% 0px', threshold:0.01 });
- 
+
     cibles.forEach(function(el){ obs.observe(el); });
     window.addEventListener('scroll', demander, { passive:true });
     window.addEventListener('resize', demander, { passive:true });
- 
+
     /* Deux images d'attente avant la première révélation, et ce n'est
        pas une superstition : si `.vu` arrive dans la même image que
        `.apparait`, le navigateur n'a jamais peint l'état masqué et la
        transition ne joue pas — le contenu apparaît sec. Une image pour
        peindre l'état de départ, la suivante pour lancer le mouvement. */
     requestAnimationFrame(function(){ requestAnimationFrame(balayer); });
- 
+
   }catch(err){
     /* Si quoi que ce soit échoue, on ANNULE le masquage.
        Une page vitrine à moitié blanche est bien pire qu'une page sans
@@ -720,6 +720,6 @@ async function joinWaitlist(e){
   }
 })();
 </script>
- 
+
 </body>
 </html>

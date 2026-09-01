@@ -508,9 +508,14 @@
         <input type="email" id="email" name="email" placeholder="ton.adresse@gmail.com" required>
         <button type="submit">Je veux aider</button>
       </form>
-      <!-- Le message de succès dit QUAND il se passera quelque chose.
-           Sans délai annoncé, la personne attend, doute, et oublie. -->
-      <div class="success" id="success">✓ C'est noté, merci ! Tu recevras le lien d'installation dans la journée, sur cette adresse.</div>
+      <!-- Le message de succès dit CE QUI VA SE PASSER, et nomme ce dont
+           ça dépend — sans annoncer de délai.
+           Une première version disait « dans la journée ». Retiré : la
+           validation par Google ne dépend pas de nous, et une promesse
+           qu'on ne tient pas au troisième jour coûte plus cher qu'une
+           absence de promesse. Nommer la dépendance est plus crédible
+           qu'un délai vague, et ça évite d'avoir à s'excuser. -->
+      <div class="success" id="success">✓ C'est noté, merci ! Je t'envoie le lien d'installation sur cette adresse dès que Google a validé la version — c'est la seule étape qui ne dépend pas de moi.</div>
       <p class="form-note">
         Une seule contrainte : garde l'application installée pendant deux
         semaines, même sans t'en servir. Si on retombe sous douze personnes,

@@ -148,8 +148,14 @@
     border-radius:18px;padding:16px;text-align:center;
   }
   .vue img{
-    width:100%;max-width:230px;border-radius:12px;display:block;margin:0 auto;
-    border:1px solid rgba(255,255,255,0.07);
+    /* ⚠️ `height:auto` EST OBLIGATOIRE ICI. Les images portent des
+       attributs `width` et `height` — utiles, ils réservent la place et
+       évitent que la page sursaute au chargement. Mais avec `width:100%`
+       en CSS et sans `height:auto`, le navigateur garde la hauteur de
+       l'attribut : l'image est étirée. Constaté en ligne le 27 septembre
+       2026. */
+    width:100%;height:auto;max-width:230px;border-radius:12px;
+    display:block;margin:0 auto;border:1px solid rgba(255,255,255,0.07);
   }
   .vue h4{
     font-size:15px;font-weight:700;margin-top:14px;color:#F5EFE6;

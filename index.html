@@ -131,7 +131,38 @@
        aucune animation ne se joue. */
     transform:rotate(-1.5deg);
   }
-  .phone-screen{width:100%;height:100%;border-radius:26px;background:linear-gradient(180deg,#241B14,#16110C);overflow:hidden;position:relative;padding:22px 18px}
+  .phone-screen{width:100%;height:100%;border-radius:26px;background:linear-gradient(180deg,#241B14,#16110C);overflow:hidden;position:relative}
+  .phone-screen img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+
+  /* ── LES CAPTURES, DANS LE FIL DES EXPLICATIONS ────────────────────
+     Trois vraies captures, placées là où le texte en parle, plutôt
+     qu'une galerie en fin de page que personne n'ouvre. Sur téléphone
+     elles défilent au doigt ; sur ordinateur elles tiennent en ligne.
+     ⚠️ `scroll-snap` seulement : pas de flèches, pas de points, aucun
+     JavaScript. Une bande d'images ne doit pas pouvoir tomber en panne. */
+  .vues{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:34px;
+  }
+  .vue{
+    background:rgba(255,255,255,0.025);border:1px solid var(--line);
+    border-radius:18px;padding:16px;text-align:center;
+  }
+  .vue img{
+    width:100%;max-width:230px;border-radius:12px;display:block;margin:0 auto;
+    border:1px solid rgba(255,255,255,0.07);
+  }
+  .vue h4{
+    font-size:15px;font-weight:700;margin-top:14px;color:#F5EFE6;
+  }
+  .vue p{font-size:13.5px;line-height:1.5;color:var(--muted);margin-top:5px}
+  @media(max-width:860px){
+    .vues{
+      grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:78%;
+      overflow-x:auto;scroll-snap-type:x mandatory;
+      padding-bottom:8px;-webkit-overflow-scrolling:touch;
+    }
+    .vue{scroll-snap-align:center}
+  }
   .ps-top{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:24px}
   .ps-label{font-size:10px;letter-spacing:2px;color:var(--violet);text-transform:uppercase;margin-bottom:8px}
   .ps-time{font-size:58px;font-weight:800;letter-spacing:-3px;line-height:1}
@@ -327,20 +358,20 @@
         <span class="hero-note">Gratuit · Sans engagement</span>
       </div>
     </div>
-    <!-- Phone mockup -->
+    <!-- L'ÉCRAN DU TÉLÉPHONE — UNE VRAIE CAPTURE, PLUS UN DESSIN.
+         ⚠️ Remplacé le 23 septembre 2026. Jusque-là, cet écran était
+         douze <div> écrits à la main, et il montrait une interface qui
+         n'existait plus depuis des mois : une tuile « Score 340 » et un
+         bouton « Voir mon réveil » qu'on ne trouve nulle part dans
+         l'application. Personne ne l'avait vu — un dessin ne se périme
+         pas bruyamment. Une capture, au pire, vieillit ; elle n'invente
+         pas. Le cadre, l'inclinaison, l'ombre et l'animation ne changent
+         pas : seul l'intérieur devient une image.
+         🔁 À refaire quand l'accueil change pour de bon. -->
     <div class="phone">
       <div class="phone-screen">
-        <div class="ps-top"><span style="font-weight:700;color:var(--violet);letter-spacing:1px">ORARISE</span><span>9:41 ●●● 5G</span></div>
-        <div class="ps-label">Prochain réveil</div>
-        <div class="ps-time">04:50</div>
-        <div class="ps-meta">Prise à 06:30 · Lun 16 juin</div>
-        <div class="ps-row">
-          <div class="ps-chip"><div class="k">Trajet</div><div class="v" style="color:var(--mint)">40 min</div></div>
-          <div class="ps-chip"><div class="k">Météo</div><div class="v">12° 🌧️</div></div>
-          <div class="ps-chip"><div class="k">Score</div><div class="v" style="color:#FFD166">340</div></div>
-        </div>
-        <div class="ps-banner">🌧️ Pluie + trafic chargé — pars avec 15 min d'avance</div>
-        <div class="ps-btn">🔔 Voir mon réveil</div>
+        <img src="orarise-accueil.png" width="560" height="1204"
+             alt="L'accueil d'Orarise : prochain réveil à 05:50, prise de poste à 07:00, 30 minutes de trajet, départ conseillé à 06:20.">
       </div>
     </div>
   </div>
@@ -377,6 +408,34 @@
         <div class="num">4</div>
         <h3>Récupère des récompenses</h3>
         <p>Chaque réveil réussi rapporte des points et allonge ta série. De quoi transformer le lever en petite victoire plutôt qu'en corvée.</p>
+      </div>
+    </div>
+
+    <!-- ⚠️ DE VRAIES CAPTURES, PAS DES MAQUETTES. Ajoutées le 23
+         septembre 2026 : la page vendait une application mobile sans en
+         montrer un seul écran réel. Chacune est prise dans
+         l'application telle qu'elle tourne, et les données affichées
+         sont inventées de bout en bout — planning, employeur, adresse —
+         parce qu'une page publique ne porte jamais le planning de
+         quelqu'un. -->
+    <div class="vues">
+      <div class="vue">
+        <img src="orarise-scan.png" width="520" height="1118" loading="lazy"
+             alt="Les postes lus sur une photo de planning : trois nuits de 21:00 à 05:00, chacune avec son heure de réveil la veille au soir.">
+        <h4>Il lit ton planning</h4>
+        <p>Une photo suffit. Les nuits sont datées au jour de la prise de poste, pas au lendemain.</p>
+      </div>
+      <div class="vue">
+        <img src="orarise-reveil.png" width="520" height="1118" loading="lazy"
+             alt="L'écran de réveil : l'heure, la prise de poste, l'état de la route, la météo à l'arrivée et l'heure de départ conseillée.">
+        <h4>Il te réveille en te disant tout</h4>
+        <p>La route du moment, la météo à l'arrivée, l'heure à laquelle partir. Rien à calculer.</p>
+      </div>
+      <div class="vue">
+        <img src="orarise-heures.png" width="520" height="1118" loading="lazy"
+             alt="Le relevé d'heures du mois : total travaillé, dont heures de nuit, dont dimanche, dont jour férié.">
+        <h4>Il compte tes heures</h4>
+        <p>Nuit, dimanche, jour férié — de quoi relire ton bulletin de paie et poser une question.</p>
       </div>
     </div>
   </div>

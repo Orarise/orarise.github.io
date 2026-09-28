@@ -112,7 +112,7 @@
     exactement ce qui en sort, quand, et vers qui — et ce que fait le
     site orarise.fr, qui est un sujet séparé.
   </p>
-  <p class="maj">Dernière mise à jour : 22 septembre 2026</p>
+  <p class="maj">Dernière mise à jour : 29 septembre 2026</p>
 </header>
 
 <h2>Qui est responsable</h2>
@@ -151,6 +151,13 @@
     c'est la seule façon de prévenir quelqu'un. Ce que ça contient, et
     comment l'effacer, est détaillé <a href="#veilleur">plus bas</a>.
   </p>
+  <p>
+    Deux autres traces peuvent exister, <strong>sans jamais te nommer</strong> :
+    le compteur qui protège le scan contre les abus (une empreinte
+    illisible, effacée au bout de sept jours au plus), et, si tu as saisi
+    un code Premium, l'identifiant tiré au hasard de ton installation.
+    Les deux sont détaillés <a href="#compteurs">plus bas</a>.
+  </p>
 </div>
 
 <h2>Ce qui reste sur ton téléphone</h2>
@@ -183,8 +190,9 @@
 <h2>Ce qui sort de l'application</h2>
 
 <p>
-  Quatre choses, et seulement pour rendre le service demandé. Aucune
-  n'est conservée après usage, aucune n'est reliée à une identité.
+  Quatre choses principales, et seulement pour rendre le service demandé.
+  Aucune n'est reliée à une identité. Le détail complet, y compris les
+  fonctions facultatives, est dans le tableau qui suit.
 </p>
 
 <h3>1. Tes adresses, pour calculer un temps de trajet</h3>
@@ -212,6 +220,15 @@
   la transmet au service d'analyse d'images d'Anthropic (Claude) pour en
   extraire les créneaux. <strong>Ni notre serveur ni Anthropic ne
   conservent la photo après l'analyse.</strong>
+</p>
+<p>
+  Avec la photo part aussi <strong>le prénom saisi dans l'application</strong>
+  — ou le nom de ligne que tu as choisi. Il sert à une seule chose : sur un
+  planning d'équipe, ne lire que <strong>ta</strong> ligne, et pas les
+  horaires de tes collègues. Il n'est pas conservé après l'analyse. Si ton
+  prénom ne figure pas sur le planning, l'application te demande quelle
+  ligne est la tienne, et retient ce choix <strong>sur ton téléphone</strong>
+  pour les scans suivants.
 </p>
 
 <p>
@@ -262,6 +279,21 @@
       <td class="quoi">Photo d'un planning</td>
       <td>Notre serveur → Anthropic (Claude)</td>
       <td>Au scan</td>
+    </tr>
+    <tr>
+      <td class="quoi">Prénom ou nom de ligne choisi</td>
+      <td>Notre serveur → Anthropic (Claude)</td>
+      <td>Au scan, avec la photo</td>
+    </tr>
+    <tr>
+      <td class="quoi">Identifiant tiré au hasard de ton installation, et ton adresse IP</td>
+      <td>Notre serveur (compteur anti-abus)</td>
+      <td>Au scan — seule une <strong>empreinte illisible</strong> est gardée, sept jours au plus</td>
+    </tr>
+    <tr>
+      <td class="quoi">Code Premium et identifiant tiré au hasard de ton installation</td>
+      <td>Notre serveur</td>
+      <td>Quand tu saisis un code Premium</td>
     </tr>
     <tr>
       <td class="quoi">Ville ou coordonnées</td>
@@ -319,6 +351,27 @@
   directement depuis ton téléphone, par l'application de ton choix.
 </p>
 
+<h2 id="compteurs">Le compteur du scan et les codes Premium</h2>
+<p>
+  <strong>Le compteur du scan.</strong> Chaque scan de planning est une
+  analyse facturée à Orarise. Pour empêcher qu'un programme en lance des
+  milliers, notre serveur compte les scans du jour : par installation,
+  par connexion internet, et au total. Il ne garde pour cela
+  <strong>ni ton adresse IP, ni l'identifiant de ton installation</strong>,
+  mais une <strong>empreinte</strong> calculée à partir d'eux — une suite
+  de caractères dont on ne peut pas remonter à l'original, et qui change
+  chaque jour. Ces compteurs sont effacés au bout de <strong>sept
+  jours</strong> au plus. Les plafonds sont hors de portée d'un usage
+  normal : ils ne gênent personne qui scanne son planning.
+</p>
+<p>
+  <strong>Les codes Premium.</strong> Si tu saisis un code qui offre le
+  Premium, notre serveur enregistre que ce code a servi, et l'identifiant
+  de ton installation — tiré au hasard sur ton téléphone, qui ne contient
+  ni ton nom, ni ton numéro, et change si tu réinstalles. C'est ce qui
+  permet qu'un code ne serve qu'à une personne. Le serveur ne sait pas
+  qui a reçu quel code.
+</p>
 <h2 id="veilleur">Le veilleur</h2>
 
 <p>
@@ -361,7 +414,9 @@
 <p class="encadre">
   ⚠️ <strong>Désinstaller l'application ne rompt pas tes liens</strong> :
   notre serveur n'en est pas informé. Si tu as un veilleur et que tu t'en
-  vas, romps le lien <em>avant</em> de désinstaller — ou écris-nous à
+  vas, romps le lien — ou fais <em>Profil → Mes données → Supprimer</em>,
+  qui efface aussi tes liens sur notre serveur — <em>avant</em> de
+  désinstaller. Ou écris-nous à
   <a href="mailto:orariseapp@gmail.com">orariseapp@gmail.com</a> et nous
   le ferons.
 </p>
@@ -400,7 +455,8 @@
 <p>
   Nos serveurs sont hébergés en <strong>France (région de Paris)</strong>
   chez Supabase. Les données qui y transitent — un partage de planning,
-  un signalement de panne — n'y restent que le temps décrit ci-dessus.
+  un signalement de panne, un compteur de scans — n'y restent que le temps
+  décrit ci-dessus.
 </p>
 
 <p>
@@ -438,7 +494,7 @@
 
 <ul>
   <li><strong>Accès et portabilité</strong> — <em>Profil → Mes données → Exporter</em> produit un fichier lisible contenant tout.</li>
-  <li><strong>Suppression</strong> — <em>Profil → Mes données → Supprimer</em> efface définitivement tout ce qui est enregistré sur ton téléphone : postes, adresses, réveils, statistiques et préférences. Désinstaller l'application produit le même effet. Comme il n'existe aucun compte, aucune donnée ne subsiste ailleurs après cette suppression, et il n'y a personne à contacter pour l'obtenir. <strong>Seule exception : si tu as désigné un veilleur</strong>, le lien vit sur notre serveur et se supprime en le rompant dans <em>Profil → Mon veilleur</em> — désinstaller ne suffit pas. Voir <a href="#veilleur">Le veilleur</a>.</li>
+  <li><strong>Suppression</strong> — <em>Profil → Mes données → Supprimer</em> efface définitivement tout ce qui est enregistré sur ton téléphone : postes, adresses, réveils, statistiques et préférences — <strong>et aussi tes liens de veilleur sur notre serveur</strong>. Sans connexion au moment de la suppression, l'effacement côté serveur est refait automatiquement au prochain démarrage avec internet. <strong>Désinstaller, en revanche, n'efface que le téléphone</strong> : tes liens de veilleur resteraient sur notre serveur. Voir <a href="#veilleur">Le veilleur</a>. Les compteurs du scan s'effacent seuls en sept jours au plus ; l'usage d'un code Premium reste enregistré, sans rien qui te désigne (voir <a href="#compteurs">plus haut</a>).</li>
   <li><strong>Rectification</strong> — toutes tes données sont modifiables directement dans l'application.</li>
   <li><strong>Opposition</strong> — le réveil adaptatif, la géolocalisation et le partage se désactivent séparément.</li>
 </ul>

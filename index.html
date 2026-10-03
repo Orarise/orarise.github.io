@@ -377,7 +377,7 @@
     <div class="phone">
       <div class="phone-screen">
         <img src="orarise-accueil.png" width="560" height="1204"
-             alt="L'accueil d'Orarise : prochain réveil à 05:50, prise de poste à 07:00, 30 minutes de trajet, départ conseillé à 06:20.">
+             alt="L'onglet Réveil d'Orarise : le compagnon assis sur sa planète annonce le réveil à 04:20 et le train de 05:02 ; dessous, l'heure de départ et le train.">
       </div>
     </div>
   </div>
@@ -427,21 +427,21 @@
     <div class="vues">
       <div class="vue">
         <img src="orarise-scan.png" width="520" height="1118" loading="lazy"
-             alt="Les postes lus sur une photo de planning : trois nuits de 21:00 à 05:00, chacune avec son heure de réveil la veille au soir.">
+             alt="L'écran Scanner : le compagnon demande une photo du planning ; on peut aussi choisir une image ou importer depuis son agenda.">
         <h4>Il lit ton planning</h4>
         <p>Une photo suffit. Les nuits sont datées au jour de la prise de poste, pas au lendemain.</p>
       </div>
       <div class="vue">
         <img src="orarise-reveil.png" width="520" height="1118" loading="lazy"
-             alt="L'écran de réveil : l'heure, la prise de poste, l'état de la route, la météo à l'arrivée et l'heure de départ conseillée.">
+             alt="L'écran de réveil : l'heure, le compagnon qui parle dans sa bulle avec le train et la prise de poste, et le bouton Je suis debout.">
         <h4>Il te réveille en te disant tout</h4>
         <p>La route du moment, la météo à l'arrivée, l'heure à laquelle partir. Rien à calculer.</p>
       </div>
       <div class="vue">
-        <img src="orarise-heures.png" width="520" height="1118" loading="lazy"
-             alt="Le relevé d'heures du mois : total travaillé, dont heures de nuit, dont dimanche, dont jour férié.">
-        <h4>Il compte tes heures</h4>
-        <p>Nuit, dimanche, jour férié — de quoi relire ton bulletin de paie et poser une question.</p>
+        <img src="orarise-planning.png" width="520" height="1118" loading="lazy"
+             alt="Le planning : la semaine en pastilles colorées, les postes en tickets avec leur heure de réveil, un rendez-vous et un jour de repos.">
+        <h4>Il range ta semaine</h4>
+        <p>Matin, soir, nuit, rendez-vous, repos : tout d'un coup d'œil, et tes heures du mois à côté.</p>
       </div>
     </div>
   </div>
@@ -513,13 +513,30 @@
         <div><h3>Pensé pour les postes de nuit</h3><p>Tu embauches à 00h30 ? Ton réveil doit sonner la veille au soir — Orarise le sait. Et un poste à 5h le dimanche du changement d'heure sonne quand même à la bonne heure. Ces deux cas font trébucher la plupart des réveils ; ici ils sont prévus depuis le premier jour.</p></div>
       </div>
       <div class="feat">
+        <div class="ic">🚆</div>
+        <div><h3>En train, en bus, à pied ou à vélo</h3><p>En train, tu choisis ta gare de départ et ta gare d'arrivée : Orarise récupère les horaires SNCF et cale ton réveil sur le dernier train qui te fait arriver à l'heure. Si ton train est supprimé, ton alarme est avancée pour celui d'avant. En bus ou en tram, tu tapes tes horaires une fois. À pied ou à vélo, il compte ton temps de trajet.</p></div>
+      </div>
+      <div class="feat">
+        <div class="ic">📆</div>
+        <div><h3>Depuis ton agenda</h3><p>Tes postes sont déjà dans Google Agenda, Outlook ou Samsung ? Importe-les en quelques touches. Ton agenda est lu sur ton téléphone, et rien n'en sort.</p></div>
+      </div>
+      <div class="feat">
+        <div class="ic">📱</div>
+        <div><h3>Un widget sur ton écran d'accueil</h3><p>Ton compagnon, l'heure et ton prochain réveil, sans ouvrir l'application. En carte bleu nuit ou en version transparente.</p></div>
+      </div>
+      <div class="feat">
         <div class="ic">🐾</div>
         <div><h3>Un compagnon qui te connaît</h3><p>Huit compagnons, chacun avec sa voix. Plus tu te lèves à l'heure, plus votre complicité monte — et elle ne redescend jamais.</p></div>
       </div>
     </div>
   </div>
 </section>
-<!-- À VENIR -->
+<!-- À VENIR
+     3 OCTOBRE 2026 : la carte train/bus est passée dans « Bien plus qu'un
+     simple réveil », avec l'agenda et le widget (construits, dans la version 18).
+     Les captures du haut et des trois vues sont tirées des maquettes de la
+     nouvelle DA, fidèles à l'application : à remplacer par de vraies captures
+     d'un APK release quand elles seront faites. -->
 <section style="padding-top:20px">
   <div class="wrap">
     <div class="sec-label">La suite</div>
@@ -533,19 +550,6 @@
       <div class="feat soon">
         <div class="ic">🏆</div>
         <div><h3>Récompenses<span class="badge-soon">à venir</span></h3><p>Les points s'accumulent déjà à chaque réveil réussi. Le catalogue qui permettra de les échanger viendra dans un second temps.</p></div>
-      </div>
-      <!-- AJOUTÉ LE 30 SEPTEMBRE 2026 (demande de Niko). Construit, pas
-           encore publié : la mise à jour qui suit le build du 1er octobre.
-           ⚠️ LE JOUR DE LA SORTIE : sortir cette carte de « La suite »,
-           la mettre dans « Bien plus qu'un simple réveil » sans le badge,
-           et ajouter à confidentialite.html que les deux gares choisies
-           partent vers notre serveur (horaires SNCF). Même texte que la
-           fiche Play (`Orarise_Fiche_Play_Store.md`). « Horaires SNCF »,
-           jamais « partenaire SNCF » ni logo : ce sont leurs données
-           publiques. -->
-      <div class="feat soon">
-        <div class="ic">🚆</div>
-        <div><h3>En train, en bus, à pied ou à vélo<span class="badge-soon">à venir</span></h3><p>En train, tu choisis ta gare de départ et ta gare d'arrivée : Orarise récupère les horaires SNCF et cale ton réveil sur le dernier train qui te fait arriver à l'heure. Si ton train est supprimé, ton alarme est avancée pour celui d'avant. En bus ou en tram, tu tapes tes horaires une fois. À pied ou à vélo, il compte ton temps de trajet.</p></div>
       </div>
       <!-- LE WIDGET A ÉTÉ RETIRÉ LE 27 SEPTEMBRE 2026, sur décision de
            Niko. Contrairement au veilleur, il ne part pas parce qu'il est

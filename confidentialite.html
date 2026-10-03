@@ -112,7 +112,7 @@
     exactement ce qui en sort, quand, et vers qui — et ce que fait le
     site orarise.fr, qui est un sujet séparé.
   </p>
-  <p class="maj">Dernière mise à jour : 29 septembre 2026</p>
+  <p class="maj">Dernière mise à jour : 3 octobre 2026</p>
 </header>
 
 <h2>Qui est responsable</h2>
@@ -183,14 +183,14 @@
 <p>
   Tu peux à tout moment <strong>exporter l'intégralité</strong> de ces
   données dans un fichier, ou <strong>tout effacer</strong>, depuis
-  l'application : <em>Profil → Mes données</em>. La suppression est
+  l'application : <em>Moi → Mes données</em>. La suppression est
   immédiate et définitive.
 </p>
 
 <h2>Ce qui sort de l'application</h2>
 
 <p>
-  Quatre choses principales, et seulement pour rendre le service demandé.
+  Cinq choses principales, et seulement pour rendre le service demandé.
   Aucune n'est reliée à une identité. Le détail complet, y compris les
   fonctions facultatives, est dans le tableau qui suit.
 </p>
@@ -208,9 +208,8 @@
   et aussi, <strong>automatiquement pendant la nuit</strong>, si tu as
   activé le réveil adaptatif. Dans ce cas, l'application vérifie l'état
   du trafic environ une heure avant ton réveil, sans que tu aies rien à
-  faire, pour avancer ton alarme si la route s'est dégradée. C'est le
-  seul envoi qui ait lieu sans action de ta part, et tu peux le
-  désactiver dans <em>Profil → Mon réveil</em>.
+  faire, pour avancer ton alarme si la route s'est dégradée. Tu peux le
+  désactiver dans <em>Moi → Mon réveil</em>.
 </p>
 
 <h3>2. La photo de ton planning, pour en lire les horaires</h3>
@@ -235,7 +234,7 @@
   Elle est en revanche enregistrée <strong>sur ton téléphone</strong>,
   dans l'espace privé de l'application, pour que tu puisses la relire.
   Seule la dernière est gardée — chaque nouveau scan remplace la
-  précédente — et <em>Profil → Mes données → Supprimer</em> l'efface
+  précédente — et <em>Moi → Mes données → Supprimer</em> l'efface
   définitivement.
 </p>
 
@@ -248,7 +247,35 @@
   l'accueil.
 </p>
 
-<h3>4. Ce que tu écris quand tu signales une panne</h3>
+<h3>4. Tes deux gares, si tu vas au travail en train</h3>
+
+<p>
+  Si tu choisis le train dans <em>Moi → Adresses et codes → Comment je
+  vais au travail</em>, ce que tu tapes pour chercher une gare, puis tes
+  deux gares (départ et arrivée), sont envoyés à notre serveur, qui
+  interroge les <strong>horaires publics de la SNCF</strong> et rend la
+  liste des trains. Cela se produit quand tu cherches une gare et quand
+  tu appuies sur « Remplir mes horaires ».
+</p>
+<p>
+  Avec le réveil adaptatif, la même vérification a lieu
+  <strong>automatiquement pendant la nuit</strong>, environ une heure
+  avant ton réveil : tes deux gares et l'heure à laquelle tu dois
+  arriver partent vers notre serveur, pour savoir si ton train est
+  supprimé et avancer ton alarme. Rien ne relie ces gares à toi : ni
+  nom, ni identifiant. Notre serveur garde seulement, quelques heures au
+  plus, une copie des horaires trouvés, pour ne pas redemander les mêmes.
+</p>
+<p>
+  <strong>Ton agenda, lui, ne sort pas du téléphone.</strong> Quand tu
+  importes des postes ou un rendez-vous depuis ton agenda (Google
+  Agenda, Outlook, Samsung…), les événements sont lus sur le téléphone,
+  et seuls ceux que tu choisis sont enregistrés dans l'application.
+  Seule exception : l'adresse d'un rendez-vous, si tu demandes à
+  Orarise de calculer le trajet pour y aller (voir le point 1).
+</p>
+
+<h3>5. Ce que tu écris quand tu signales une panne</h3>
 
 <p>
   Ton message, le modèle de ton téléphone, sa version d'Android, la
@@ -294,6 +321,16 @@
       <td class="quoi">Code Premium et identifiant tiré au hasard de ton installation</td>
       <td>Notre serveur</td>
       <td>Quand tu saisis un code Premium</td>
+    </tr>
+    <tr>
+      <td class="quoi">Recherche d'une gare, puis tes deux gares</td>
+      <td>Notre serveur → horaires SNCF</td>
+      <td>Quand tu choisis le train et appuies sur « Remplir mes horaires »</td>
+    </tr>
+    <tr>
+      <td class="quoi">Tes deux gares et l'heure d'arrivée voulue</td>
+      <td>Notre serveur → horaires SNCF</td>
+      <td><strong>Automatiquement la nuit</strong>, en train, si le réveil adaptatif est activé</td>
     </tr>
     <tr>
       <td class="quoi">Ville ou coordonnées</td>
@@ -414,7 +451,7 @@
 <p class="encadre">
   ⚠️ <strong>Désinstaller l'application ne rompt pas tes liens</strong> :
   notre serveur n'en est pas informé. Si tu as un veilleur et que tu t'en
-  vas, romps le lien — ou fais <em>Profil → Mes données → Supprimer</em>,
+  vas, romps le lien — ou fais <em>Moi → Mes données → Supprimer</em>,
   qui efface aussi tes liens sur notre serveur — <em>avant</em> de
   désinstaller. Ou écris-nous à
   <a href="mailto:orariseapp@gmail.com">orariseapp@gmail.com</a> et nous
@@ -493,8 +530,8 @@
 </p>
 
 <ul>
-  <li><strong>Accès et portabilité</strong> — <em>Profil → Mes données → Exporter</em> produit un fichier lisible contenant tout.</li>
-  <li><strong>Suppression</strong> — <em>Profil → Mes données → Supprimer</em> efface définitivement tout ce qui est enregistré sur ton téléphone : postes, adresses, réveils, statistiques et préférences — <strong>et aussi tes liens de veilleur sur notre serveur</strong>. Sans connexion au moment de la suppression, l'effacement côté serveur est refait automatiquement au prochain démarrage avec internet. <strong>Désinstaller, en revanche, n'efface que le téléphone</strong> : tes liens de veilleur resteraient sur notre serveur. Voir <a href="#veilleur">Le veilleur</a>. Les compteurs du scan s'effacent seuls en sept jours au plus ; l'usage d'un code Premium reste enregistré, sans rien qui te désigne (voir <a href="#compteurs">plus haut</a>).</li>
+  <li><strong>Accès et portabilité</strong> — <em>Moi → Mes données → Exporter</em> produit un fichier lisible contenant tout.</li>
+  <li><strong>Suppression</strong> — <em>Moi → Mes données → Supprimer</em> efface définitivement tout ce qui est enregistré sur ton téléphone : postes, adresses, réveils, statistiques et préférences — <strong>et aussi tes liens de veilleur sur notre serveur</strong>. Sans connexion au moment de la suppression, l'effacement côté serveur est refait automatiquement au prochain démarrage avec internet. <strong>Désinstaller, en revanche, n'efface que le téléphone</strong> : tes liens de veilleur resteraient sur notre serveur. Voir <a href="#veilleur">Le veilleur</a>. Les compteurs du scan s'effacent seuls en sept jours au plus ; l'usage d'un code Premium reste enregistré, sans rien qui te désigne (voir <a href="#compteurs">plus haut</a>).</li>
   <li><strong>Rectification</strong> — toutes tes données sont modifiables directement dans l'application.</li>
   <li><strong>Opposition</strong> — le réveil adaptatif, la géolocalisation et le partage se désactivent séparément.</li>
 </ul>
